@@ -1,0 +1,19 @@
+{
+  "name": "semana-backend-javascript",
+  "version": "1.0.0",
+  "description": "Semana do Backend JavaScript - Salvatore Academy: Dias 17, 18 e 19 de Outubro/2023",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrolima-dev/semana-backend-javascript.git#main"
+  },
+  "author": "Leandro Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leandrolima-dev/semana-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/leandrolima-dev/semana-backend-javascript/tree/main#readme"
+}
