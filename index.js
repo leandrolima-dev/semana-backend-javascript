@@ -22,6 +22,15 @@ app.get("/items", function (req, res) {
     res.send(items)
 });
 
+// READ BY ID - [GET] /items/:id
+app.get("/items/:id", function (req, res) {
+    const id = req.params.id - 1;
+
+    const item = items[id]
+
+    res.send(item)
+});
+
 // CREAT - [POST] /items
 app.post("/items", function (req, res) {
     //Extraio a informação do corpo da requisição
