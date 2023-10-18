@@ -14,12 +14,12 @@ app.get('/oi', function (req, res) {
 });
 
 // CRUD de lista de DevMon
+ const items = ["Java", "Kotlin", "Android", "Express", "NestJS"];
 
-const items = ["Java", "Android", "Kotlin", "Express", "NestJS"];
 
 // READ ALL - [GET] /items
 app.get("/items", function (req, res) {
-    res.send(items)
+    res.send(items.filter(Boolean))
 });
 
 // READ BY ID - [GET] /items/:id
