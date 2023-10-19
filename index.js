@@ -47,8 +47,10 @@ async function main() {
     ];
 
     // READ ALL - [GET] /items
-    app.get("/items", function (req, res) {
-        res.send(items.filter(Boolean))
+    app.get("/items", async function (req, res) {
+        const documents = await collection.find().toArray()
+
+        res.send(documents)
     });
 
     // READ BY ID - [GET] /items/:id
@@ -68,7 +70,7 @@ async function main() {
     });
 
     // CREAT - [POST] /items
-    app.post("/items", function (req, res) {
+    app.post("/items", async function (req, res) {
         //Extraio a informação do corpo da requisição
         const item = req.body
 
@@ -80,11 +82,14 @@ async function main() {
             })
         }
 
-        // Calculamos o novo ID a partir da quantidade de itens na lista
-        item.id = items.length + 1
+        // // Calculamos o novo ID a partir da quantidade de itens na lista
+        // item.id = items.length + 1
 
-        //Insiro o item na lista
-        items.push(item)
+        // //Insiro o item na lista
+        // items.push(item)
+
+        //Inserir um item na collection
+        await collection.insertOne(item)
 
         //Enviamos uma msg de sucesso
         res.status(201).send(item)
