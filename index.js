@@ -56,12 +56,15 @@ app.post("/items", function (req, res) {
     //Extraio a informação do corpo da requisição
     const item = req.body
 
+    // Validamos o corpo da requisição, garantindo que tem
+    // as propriedades corretas
     if (!item || !item.name || !item.imageUrl) {
         return res.status(400).send({
             message: "name & imageUrl are required."
         })
     }
 
+    // Calculamos o novo ID a partir da quantidade de itens na lista
     item.id = items.length + 1
 
     //Insiro o item na lista
@@ -84,6 +87,8 @@ app.put("/items/:id", function (req, res) {
         return elemento.id === id
     })
 
+    // Pegamos todas as propriedades do newItem e atualizamos
+    // na lista, mantendo o ID atual
     items[index] = {
         ...newItem,
         id,
@@ -98,6 +103,7 @@ app.delete("/items/:id", function (req, res) {
     // Acessamos o parâmetro de rota e corrigimos o índice
     const id = +req.params.id
 
+    // Buscamos o índice da lista para o elemento com o ID passado
     const index = items.findIndex(function (element) {
         return element.id === id
     })
