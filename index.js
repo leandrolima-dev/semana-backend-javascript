@@ -56,13 +56,19 @@ app.post("/items", function (req, res) {
     //Extraio a informação do corpo da requisição
     const item = req.body
 
+    if (!item || !item.name || !item.imageUrl) {
+        return res.status(400).send({
+            message: "name & imageUrl are required."
+        })
+    }
+
     item.id = items.length + 1
 
     //Insiro o item na lista
     items.push(item)
 
     //Enviamos uma msg de sucesso
-    res.send(item)
+    res.status(201).send(item)
 });
 
 // UPDATE - [PUT] /items/:id
