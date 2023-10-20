@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/leandrolima-dev/semana-backend-javascript/tree/main#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^6.1.0"
   },
